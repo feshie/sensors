@@ -9604,6 +9604,8 @@ Standard 6 pin header for AVR programming</description>
 <part name="JP8" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="glacsweb" deviceset="VCC" device=""/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R0805" value="10k"/>
+<part name="R4" library="resistor" deviceset="R-EU_" device="R0805" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -9631,7 +9633,7 @@ Standard 6 pin header for AVR programming</description>
 <instance part="P+5" gate="VCC" x="109.22" y="129.54"/>
 <instance part="JP3" gate="A" x="114.3" y="17.78"/>
 <instance part="GND2" gate="1" x="99.06" y="12.7"/>
-<instance part="P+6" gate="VCC" x="99.06" y="30.48"/>
+<instance part="P+6" gate="VCC" x="99.06" y="43.18"/>
 <instance part="JP4" gate="A" x="241.3" y="134.62"/>
 <instance part="JP5" gate="A" x="241.3" y="116.84"/>
 <instance part="JP6" gate="A" x="241.3" y="99.06"/>
@@ -9639,6 +9641,8 @@ Standard 6 pin header for AVR programming</description>
 <instance part="JP8" gate="A" x="241.3" y="63.5"/>
 <instance part="GND7" gate="1" x="220.98" y="58.42"/>
 <instance part="P+7" gate="VCC" x="213.36" y="142.24"/>
+<instance part="R3" gate="G$1" x="91.44" y="30.48" rot="R90"/>
+<instance part="R4" gate="G$1" x="83.82" y="30.48" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -9758,7 +9762,14 @@ Standard 6 pin header for AVR programming</description>
 <pinref part="JP3" gate="A" pin="1"/>
 <pinref part="P+6" gate="VCC" pin="VCC"/>
 <wire x1="111.76" y1="22.86" x2="99.06" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="22.86" x2="99.06" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="22.86" x2="99.06" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="99.06" y1="35.56" x2="99.06" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="35.56" x2="91.44" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<junction x="91.44" y="35.56"/>
+<wire x1="91.44" y1="35.56" x2="99.06" y2="35.56" width="0.1524" layer="91"/>
+<junction x="99.06" y="35.56"/>
 </segment>
 <segment>
 <pinref part="JP4" gate="A" pin="1"/>
@@ -9905,8 +9916,11 @@ Standard 6 pin header for AVR programming</description>
 </segment>
 <segment>
 <pinref part="JP3" gate="A" pin="2"/>
-<wire x1="111.76" y1="20.32" x2="88.9" y2="20.32" width="0.1524" layer="91"/>
-<label x="88.9" y="20.32" size="1.778" layer="95"/>
+<wire x1="111.76" y1="20.32" x2="83.82" y2="20.32" width="0.1524" layer="91"/>
+<label x="76.2" y="20.32" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="83.82" y1="20.32" x2="76.2" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="25.4" x2="83.82" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -9917,8 +9931,12 @@ Standard 6 pin header for AVR programming</description>
 </segment>
 <segment>
 <pinref part="JP3" gate="A" pin="3"/>
-<wire x1="111.76" y1="17.78" x2="88.9" y2="17.78" width="0.1524" layer="91"/>
-<label x="88.9" y="17.78" size="1.778" layer="95"/>
+<wire x1="111.76" y1="17.78" x2="91.44" y2="17.78" width="0.1524" layer="91"/>
+<label x="76.2" y="17.78" size="1.778" layer="95"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="91.44" y1="17.78" x2="76.2" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="25.4" x2="91.44" y2="17.78" width="0.1524" layer="91"/>
+<junction x="91.44" y="17.78"/>
 </segment>
 </net>
 <net name="1W" class="0">
