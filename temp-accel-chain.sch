@@ -6734,6 +6734,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
 <part name="U2" library="SparkFun-Sensors" deviceset="ADXL345" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
+<part name="C2" library="resistor" deviceset="C-EU" device="C0805"/>
 </parts>
 <sheets>
 <sheet>
@@ -6755,6 +6756,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
 <instance part="U2" gate="G$1" x="203.2" y="142.24"/>
 <instance part="GND5" gate="1" x="187.96" y="127"/>
+<instance part="C2" gate="G$1" x="129.54" y="43.18"/>
 </instances>
 <busses>
 </busses>
@@ -6802,6 +6804,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="121.92" y1="45.72" x2="111.76" y2="45.72" width="0.1524" layer="91"/>
 <label x="111.76" y="45.72" size="1.778" layer="95"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="45.72" x2="121.92" y2="45.72" width="0.1524" layer="91"/>
+<junction x="121.92" y="45.72"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="VDD"/>
@@ -6871,6 +6876,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND2" gate="1" pin="GND"/>
+<pinref part="C2" gate="G$1" pin="2"/>
+<wire x1="121.92" y1="38.1" x2="129.54" y2="38.1" width="0.1524" layer="91"/>
+<junction x="121.92" y="38.1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="GND"/>
