@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="5" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
+<grid distance="5" unitdist="mil" unit="mm" style="lines" multiple="1" display="yes" altdistance="1" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -141,7 +141,7 @@
 <wire x1="-2.687" y1="-1.905" x2="-2.687" y2="27.229" width="0" layer="20"/>
 <wire x1="-2.687" y1="27.229" x2="-38.989" y2="27.229" width="0" layer="20"/>
 <wire x1="-38.989" y1="27.229" x2="-38.989" y2="-1.905" width="0" layer="20"/>
-<text x="-38.481" y="24.892" size="1.778" layer="25">S-interface</text>
+<text x="-38.481" y="24.892" size="1.778" layer="25">D-interface</text>
 <text x="-38.354" y="22.86" size="1.778" layer="25">V0.1</text>
 <text x="-3.175" y="-1.397" size="1.778" layer="25" rot="R90">PJB</text>
 <text x="-24.384" y="6.096" size="1.778" layer="25">One-Wire</text>
