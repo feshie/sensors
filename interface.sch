@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12102,6 +12102,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="rs485" width="0.3048" drill="0">
+<clearance class="1" value="0.1524"/>
+</class>
 </classes>
 <parts>
 <part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
@@ -12336,20 +12339,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="78.74" y="55.88"/>
 </segment>
 </net>
-<net name="AY" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="A/Y"/>
-<wire x1="60.96" y1="93.98" x2="78.74" y2="93.98" width="0.1524" layer="91"/>
-<label x="73.66" y="93.98" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="A" pin="2"/>
-<pinref part="JP1" gate="A" pin="2"/>
-<wire x1="35.56" y1="55.88" x2="10.16" y2="55.88" width="0.1524" layer="91"/>
-<label x="17.78" y="55.88" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="BZ" class="0">
+<net name="485_N" class="1">
 <segment>
 <pinref part="U1" gate="A" pin="B/Z"/>
 <wire x1="60.96" y1="91.44" x2="78.74" y2="91.44" width="0.1524" layer="91"/>
@@ -12634,6 +12624,19 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="JP3" gate="B" pin="3"/>
 <wire x1="109.22" y1="27.94" x2="121.92" y2="27.94" width="0.1524" layer="91"/>
 <label x="116.84" y="27.94" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="485_P" class="1">
+<segment>
+<pinref part="U1" gate="A" pin="A/Y"/>
+<wire x1="60.96" y1="93.98" x2="78.74" y2="93.98" width="0.1524" layer="91"/>
+<label x="73.66" y="93.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<pinref part="JP1" gate="A" pin="2"/>
+<wire x1="35.56" y1="55.88" x2="10.16" y2="55.88" width="0.1524" layer="91"/>
+<label x="17.78" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
