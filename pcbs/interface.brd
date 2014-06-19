@@ -1947,6 +1947,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="-23.241" y="26.035" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="-20.066" y="27.94" size="1.27" layer="27" rot="R180"/>
 </element>
+<element name="R7" library="resistor" package="R0805" value="4K7" x="-7.493" y="2.54" rot="R90"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -2235,6 +2236,9 @@ design rules under a new name.</description>
 <wire x1="-9.525" y1="5.842" x2="-9.525" y2="2.54" width="0.3048" layer="16"/>
 <wire x1="-9.525" y1="2.54" x2="-10.033" y2="2.032" width="0.3048" layer="16"/>
 <wire x1="-10.033" y1="2.032" x2="-11.557" y2="2.032" width="0.3048" layer="16"/>
+<contactref element="R7" pad="1"/>
+<wire x1="-11.557" y1="1.69" x2="-11.557" y2="2.032" width="0.8128" layer="1"/>
+<wire x1="-7.493" y1="1.69" x2="-11.557" y2="1.69" width="0.6096" layer="1"/>
 </signal>
 <signal name="N$2">
 <contactref element="U2" pad="7"/>
@@ -2296,7 +2300,8 @@ design rules under a new name.</description>
 <wire x1="-14.732" y1="4.572" x2="-17.907" y2="4.572" width="0.8128" layer="1"/>
 <wire x1="-24.257" y1="4.572" x2="-21.082" y2="4.572" width="0.8128" layer="1"/>
 <wire x1="-21.082" y1="4.572" x2="-17.907" y2="4.572" width="0.8128" layer="1"/>
-<wire x1="-11.557" y1="4.572" x2="-6.477" y2="4.572" width="0.6096" layer="1"/>
+<wire x1="-11.557" y1="4.572" x2="-7.366" y2="4.572" width="0.6096" layer="1"/>
+<wire x1="-7.366" y1="4.572" x2="-6.477" y2="4.572" width="0.6096" layer="1"/>
 <wire x1="-6.477" y1="4.572" x2="-4.318" y2="6.604" width="0.6096" layer="1"/>
 <wire x1="-4.318" y1="6.604" x2="-4.318" y2="15.24" width="0.6096" layer="1"/>
 <wire x1="-4.318" y1="15.24" x2="-6.477" y2="17.399" width="0.6096" layer="1"/>
@@ -2319,6 +2324,9 @@ design rules under a new name.</description>
 <wire x1="-33.528" y1="15.621" x2="-33.528" y2="16.383" width="0.6096" layer="16"/>
 <wire x1="-33.528" y1="16.383" x2="-33.909" y2="16.764" width="0.6096" layer="16"/>
 <wire x1="-33.909" y1="16.764" x2="-35.687" y2="16.764" width="0.6096" layer="16"/>
+<contactref element="R7" pad="2"/>
+<wire x1="-7.493" y1="3.39" x2="-7.366" y2="3.39" width="0.6096" layer="1"/>
+<wire x1="-7.366" y1="3.39" x2="-7.366" y2="4.572" width="0.6096" layer="1"/>
 </signal>
 <signal name="SDA2">
 <contactref element="U2" pad="10"/>

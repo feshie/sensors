@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.6.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12147,6 +12147,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="P+5" library="glacsweb" deviceset="VCC" device=""/>
 <part name="R5" library="resistor" deviceset="R-EU_" device="R0805" value="10k"/>
 <part name="R6" library="resistor" deviceset="R-EU_" device="R0805" value="10k"/>
+<part name="R7" library="resistor" deviceset="R-EU_" device="R0805" value="4K7"/>
 </parts>
 <sheets>
 <sheet>
@@ -12193,6 +12194,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="P+5" gate="VCC" x="172.72" y="167.64"/>
 <instance part="R5" gate="G$1" x="81.28" y="50.8" rot="R90"/>
 <instance part="R6" gate="G$1" x="88.9" y="50.8" rot="R90"/>
+<instance part="R7" gate="G$1" x="208.28" y="68.58" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -12484,18 +12486,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="215.9" y1="99.06" x2="215.9" y2="81.28" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="81.28" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="63.5" x2="238.76" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="63.5" x2="205.74" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="63.5" x2="208.28" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="JP6" gate="A" pin="2"/>
+<wire x1="208.28" y1="63.5" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="238.76" y1="99.06" x2="215.9" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="2"/>
 <wire x1="238.76" y1="116.84" x2="215.9" y2="116.84" width="0.1524" layer="91"/>
 <junction x="215.9" y="116.84"/>
 <junction x="215.9" y="99.06"/>
 <junction x="215.9" y="63.5"/>
-<label x="205.74" y="63.5" size="1.778" layer="95"/>
+<label x="200.66" y="63.5" size="1.778" layer="95"/>
 <pinref part="JP7" gate="A" pin="2"/>
 <wire x1="238.76" y1="81.28" x2="215.9" y2="81.28" width="0.1524" layer="91"/>
 <junction x="215.9" y="81.28"/>
+<pinref part="R7" gate="G$1" pin="1"/>
+<junction x="208.28" y="63.5"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="PC2(ADC2)"/>
@@ -12576,7 +12581,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="213.36" y1="137.16" x2="213.36" y2="119.38" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="119.38" x2="213.36" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="101.6" x2="213.36" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="83.82" x2="213.36" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="83.82" x2="213.36" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="73.66" x2="213.36" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="213.36" y1="66.04" x2="238.76" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="JP5" gate="A" pin="1"/>
 <wire x1="238.76" y1="119.38" x2="213.36" y2="119.38" width="0.1524" layer="91"/>
@@ -12588,6 +12594,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <junction x="213.36" y="101.6"/>
 <junction x="213.36" y="83.82"/>
 <label x="213.36" y="137.16" size="1.778" layer="95"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="213.36" y1="73.66" x2="208.28" y2="73.66" width="0.1524" layer="91"/>
+<junction x="213.36" y="73.66"/>
 </segment>
 </net>
 <net name="SDA2" class="0">
