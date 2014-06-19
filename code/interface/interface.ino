@@ -8,7 +8,7 @@
 // http://milesburton.com/Dallas_Temperature_Control_Library
 
 int OW_PIN = 10;
-bool DEBUG = 1;
+bool DEBUG = 0;
 
 
 OneWire  ds(OW_PIN);  // on pin 10
@@ -16,25 +16,25 @@ OneWire  ds(OW_PIN);  // on pin 10
 
 void setup(void) {
   Serial.begin(9600);
+  read_1W();
+  Serial.println("*****");
 }
 
-void read_1W(void){
+void read_1W(){
+  byte addr[8];
+  while(ds.search(addr)){
+    read_1W_addr(addr);
+  }
+  ds.reset_search();
+  delay(250);
+}
+
+void read_1W_addr(byte addr[8]){
    byte i;
   byte present = 0;
   byte type_s;
   byte data[12];
-  byte addr[8];
   float celsius;
-  
-  if ( !ds.search(addr)) {
-    if (DEBUG){
-      Serial.println("No more addresses.");
-      Serial.println();
-    }
-    ds.reset_search();
-    delay(250);
-    return;
-  }
   if (DEBUG){
     Serial.print("ROM =");
     for( i = 0; i < 8; i++) {
@@ -106,7 +106,6 @@ void read_1W(void){
     Serial.print(OneWire::crc8(data, 8), HEX);
     Serial.println();
   }
-}
 
   // convert the data to actual temperature
 
@@ -131,7 +130,6 @@ void read_1W(void){
     Serial.print(" Celsius, ");
   }
   for( i = 0; i < 8; i++) {
-      Serial.write(' ');
       Serial.print(addr[i], HEX);
     }
   Serial.print(",");
