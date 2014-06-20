@@ -123,12 +123,12 @@
 <wire x1="31.095" y1="0" x2="31.095" y2="10.465" width="0" layer="20"/>
 <wire x1="31.095" y1="10.465" x2="1.8796" y2="10.465" width="0" layer="20"/>
 <wire x1="1.8796" y1="10.465" x2="1.8796" y2="0" width="0" layer="20"/>
-<text x="23.749" y="0.889" size="1.27" layer="25" rot="R90">Bus Select</text>
+<text x="23.749" y="0.889" size="0.8128" layer="25" rot="R90">Bus Select</text>
 <text x="19.685" y="3.81" size="0.6096" layer="25" rot="R90">1</text>
 <text x="19.685" y="7.747" size="0.6096" layer="25" rot="R90">1</text>
 <text x="19.685" y="5.842" size="0.6096" layer="25" rot="R90">2</text>
 <text x="19.685" y="1.905" size="0.6096" layer="25" rot="R90">2</text>
-<text x="18.415" y="6.477" size="1.27" layer="25" rot="R90">ID</text>
+<text x="18.542" y="6.985" size="1.27" layer="25" rot="R90">ID</text>
 <text x="16.383" y="3.937" size="0.6096" layer="25" rot="R90">0</text>
 <text x="16.51" y="5.842" size="0.6096" layer="25" rot="R90">1</text>
 <text x="4.318" y="9.144" size="0.8128" layer="25">PJB</text>
