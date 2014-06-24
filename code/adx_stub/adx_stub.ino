@@ -1,13 +1,14 @@
 #include <Wire.h>
 // https://github.com/jenschr/Arduino-libraries/blob/master/ADXL345/examples/ADXL345_no_library/BareBones_ADXL345.pde
-#define DEVICE (0x53) // Device address as specified in data sheet
-
-#define DEBUG 1
+#define DEVICE1 (0x53) // Device address as specified in data sheet
+#define DEVICE2 0x1D
+#define DEBUG 0
 
 
 
 char POWER_CTL = 0x2D;	//Power Control Register
 char DATA_FORMAT = 0x31;
+
 char DATAX0 = 0x32;	//X-Axis Data 0
 char DATAX1 = 0x33;	//X-Axis Data 1
 char DATAY0 = 0x34;	//Y-Axis Data 0
@@ -19,14 +20,14 @@ void setup()
 {
   Wire.begin(); // join i2c bus (address optional for master)
   Serial.begin(9600); // start serial for output. Make sure you set your Serial Monitor to the same!
-
+  setup_accel_wire(DEVICE2);
 }
 
 void setup_accel_wire(byte addr){
   //Put the ADXL345 into +/- 2G range by writing the value 0x01 to the DATA_FORMAT register.
-  writeTo(DEVICE, DATA_FORMAT, 0x00);
+  writeTo(addr, DATA_FORMAT, 0x00);
   //Put the ADXL345 into Measurement Mode by writing 0x08 to the POWER_CTL register.
-  writeTo(DEVICE, POWER_CTL, 0x08);
+  writeTo(addr, POWER_CTL, 0x08);
   if (DEBUG){
     Serial.println("ADXL setup");
   }
@@ -35,14 +36,20 @@ void setup_accel_wire(byte addr){
 
 void loop()
 {
-  readAccel(); // read the x/y/z tilt
+  double data[2];
+  readAccel(DEVICE2, data); // read the x/y/z tilt
+  Serial.print(data[0]);
+  Serial.print(":");
+  Serial.println(data[1]);
   delay(1000); // only read every 0,5 seconds
 }
 
-void readAccel() {
+void readAccel(byte addr, double data[]) {
+
   uint8_t howManyBytesToRead = 6;
   byte _buff[6];
-  readFrom( DEVICE, DATAX0, howManyBytesToRead, _buff); //read the acceleration data from the ADXL345
+  double res[2];
+  readFrom( addr, DATAX0, howManyBytesToRead, _buff); //read the acceleration data from the ADXL345
 
   // each axis reading comes in 10 bit resolution, ie 2 bytes. Least Significat Byte first!!
   // thus we are converting both bytes in to one int
@@ -61,9 +68,8 @@ void readAccel() {
   double roll, pitch;
   roll  = (atan2(-y, z)*180.0)/M_PI;
   pitch = (atan2(x, sqrt(y*y + z*z))*180.0)/M_PI;
-  Serial.print(pitch);
-  Serial.print(":");
-  Serial.println(roll);
+  data[0] = pitch;
+  data[1] = roll;
 }
 
 void writeTo(byte device, byte address, byte val) {
