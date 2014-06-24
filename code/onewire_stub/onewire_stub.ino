@@ -105,7 +105,9 @@ void read_1W_addr(byte addr[8]){
     Serial.print(" CRC=");
     Serial.print(OneWire::crc8(data, 8), HEX);
     Serial.println();
-  }  // convert the data to actual temperature
+  }
+
+  // convert the data to actual temperature
 
   unsigned int raw = (data[1] << 8) | data[0];
   if (type_s) {
@@ -140,3 +142,4 @@ void read_1W_addr(byte addr[8]){
 void loop(void) {
   read_1W();
   }
+
