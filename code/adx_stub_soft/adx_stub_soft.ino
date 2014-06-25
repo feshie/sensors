@@ -1,10 +1,12 @@
 
 
-#include <Wire.h>
+
 // https://github.com/jenschr/Arduino-libraries/blob/master/ADXL345/examples/ADXL345_no_library/BareBones_ADXL345.pde
 #define DEVICE1 (0x53) // Device address as specified in data sheet
 #define DEVICE2 0x1D
+
 #define DEBUG 1
+
 #define SDA_PORT PORTC
 #define SDA_PIN 4
 #define SCL_PORT PORTC
