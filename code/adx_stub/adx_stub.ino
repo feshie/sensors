@@ -85,7 +85,7 @@ void readFrom(byte device, byte address, int num, byte _buff[]) {
   Wire.write(address); // sends address to read from
   Wire.endTransmission(); // end transmission
 
-  Wire.beginTransmission(device); // start transmission to device
+
   Wire.requestFrom((int)device, num); // request 6 bytes from device
 
   int i = 0;
@@ -94,5 +94,5 @@ void readFrom(byte device, byte address, int num, byte _buff[]) {
     _buff[i] = Wire.read(); // receive a byte
     i++;
   }
-  Wire.endTransmission(); // end transmission
+
 }
