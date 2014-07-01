@@ -1,3 +1,6 @@
 [submodule "code/SoftI2CMaster"]
 	path = code/SoftI2CMaster
 	url = https://github.com/felias-fogg/SoftI2CMaster.git
+[submodule "code/i2cdevlib"]
+	path = code/i2cdevlib
+	url = https://github.com/feshie/i2cdevlib.git
