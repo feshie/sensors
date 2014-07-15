@@ -7,7 +7,7 @@
 // The DallasTemperature library can do all this work for you!
 // http://milesburton.com/Dallas_Temperature_Control_Library
 
-int OW_PIN = 10;
+int OW_PIN = A2;
 bool DEBUG = 0;
 
 
@@ -22,12 +22,21 @@ void setup(void) {
 
 void read_1W(){
   byte addr[8];
+  if (DEBUG){
+    Serial.println("Starting Search");
+  }
   while(ds.search(addr)){
     read_1W_addr(addr);
   }
+  
   ds.reset_search();
+  if (DEBUG){
+     Serial.println("Loop complete");
+  }
   delay(250);
 }
+
+
 
 void read_1W_addr(byte addr[8]){
    byte i;
@@ -129,9 +138,7 @@ void read_1W_addr(byte addr[8]){
     Serial.print(celsius);
     Serial.print(" Celsius, ");
   }
-  for( i = 0; i < 8; i++) {
-      Serial.print(addr[i], HEX);
-    }
+  Serial.print(addr[7], HEX);
   Serial.print(",");
   Serial.println(celsius);
 
