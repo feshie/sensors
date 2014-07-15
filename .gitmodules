@@ -4,3 +4,6 @@
 [submodule "code/i2cdevlib"]
 	path = code/i2cdevlib
 	url = https://github.com/feshie/i2cdevlib.git
+[submodule "code/protocol-buffers"]
+	path = code/protocol-buffers
+	url = https://github.com/feshie/protocol-buffers.git
