@@ -44,7 +44,7 @@ void setup() {
     
     Serial.println("Testing device connections...");
     Serial.println(adc0.testConnection() ? "ADS1115 connection successful" : "ADS1115 connection failed");
-
+    
 }
 
 void loop() 
@@ -52,21 +52,32 @@ void loop()
 
     // Sensor is on P0/N1 (pins 4/5)
     Serial.println("Sensor 1 ************************");
-    // Set the gain (PGA) +/- 6.144v
-    adc0.setGain(ADS1115_PGA_6P144 );
-
+    adc0.setMode(ADS1115_CFG_MODE_BIT);
+    adc0.setGain(ADS1115_PGA_4P096 );
     // Get the number of counts of the accumulator
     Serial.print("Counts for sensor 1 is:");
-    
+    adc0.setMultiplexer(ADS1115_MUX_P0_NG); // set the mux anyway
+    delay(30);
     // The below method sets the mux and gets a reading.
+    adc0.setMode(ADS1115_MODE_SINGLESHOT);
     int sensorOneCounts=adc0.getConversionP0GND();  // counts up to 16-bits  
     Serial.println(sensorOneCounts);
-
-  
+    
+        Serial.println("Sensor 2 ************************");
+    adc0.setMode(ADS1115_CFG_MODE_BIT);
+    // Set the gain (PGA) +/- 6.144v
+    adc0.setGain(ADS1115_PGA_6P144 );
+       Serial.print("Counts for sensor 2 is:");
+    adc0.setMultiplexer(ADS1115_MUX_P1_NG);
+    delay(30);
+    adc0.setMode(ADS1115_MODE_SINGLESHOT);
+    // The below method sets the mux and gets a reading.
+    int sensorTwoCounts=adc0.getConversion();  // counts up to 16-bits  
+    Serial.println(sensorTwoCounts);
     
     Serial.println();
     
-    delay(500);
+    delay(1000);
   }
   
 
