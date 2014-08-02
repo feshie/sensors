@@ -4,6 +4,7 @@ Feshie Sensor Driver
 Authors
 --------
 Jonathon Hare | jonhare | jsh2@ecs.soton.ac.uk
+	
 Phil Basford  | pjb304 | pjb@ecs.soton.ac.uk
 
 Summary
