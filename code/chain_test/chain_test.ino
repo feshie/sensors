@@ -50,13 +50,13 @@ void setup(void) {
 
 void read_chain(){
   //read temperatures
-  Serial.print(tmp_read_soft(TMP_ADDR1));
-  Serial.print(" ");
-  Serial.print(tmp_read_soft(TMP_ADDR2));
-  Serial.print(" ");
   Serial.print(tmp_read_wire(TMP_ADDR1));
   Serial.print(" ");
-  Serial.print(tmp_read_wire(TMP_ADDR2)); 
+  Serial.print(tmp_read_wire(TMP_ADDR2));
+  Serial.print(" ");
+  Serial.print(tmp_read_soft(TMP_ADDR1));
+  Serial.print(" ");
+  Serial.print(tmp_read_soft(TMP_ADDR2)); 
   Serial.print(" ** ");
   //Setup and read Accels
   setup_accel_soft(ACCEL_ADDR1);
