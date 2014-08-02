@@ -4,7 +4,7 @@ Feshie Sensor Driver
 Authors
 --------
 Jonathon Hare | jonhare | jsh2@ecs.soton.ac.uk
-	
+
 Phil Basford  | pjb304 | pjb@ecs.soton.ac.uk
 
 Summary
@@ -27,11 +27,12 @@ The AVRs connected to the RS485 bus all listen for commands. Commands are ignore
 
 The currently supported commands, together with the responses are detailed in the following table:
 
-| Name    | `<OPCODE>` | `<PAYLOAD>`                    | Expected response                   |
-|---------|------------|--------------------------------|-------------------------------------|
-| Echo    | 0x00	   | A null terminated ASCII string | the `<PAYLOAD>`                     |
-| GetData | 0x01       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]><CRC32:int32>` |
-| SetGain | 0x02       | The new gain to set (8 bytes?) | ACK byte: 0x01                      |
+| Name        | `<OPCODE>` | `<PAYLOAD>`                    | Expected response                   |
+|-------------|------------|--------------------------------|-------------------------------------|
+| Echo        | 0x00	   | A null terminated ASCII string | the `<PAYLOAD>`                     |
+| ListSensors | 0x01       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]><CRC32:int32>` |
+| GetData     | 0x02       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]><CRC32:int32>` |
+| SetGain     | 0x03       | The new gain to set (8 bytes?) | ACK byte: 0x01                      |
 
 
 AVR Sensor Connections
