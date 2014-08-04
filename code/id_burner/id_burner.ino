@@ -1,4 +1,5 @@
 #include <EEPROM.h>
+#include "sensors.h"
 
 //Pin for toggling rx/tx
 #define IO_PIN 2
@@ -37,6 +38,7 @@ void setup() {
 //  digitalWrite(IO_PIN, LOW);
 
   EEPROM.write(0,0x01);
+  EEPROM.write(0,SENSOR_TACHAIN);
   
   pinMode(IO_PIN, OUTPUT);
 }
@@ -48,3 +50,4 @@ void loop() {
   Serial.flush();
   digitalWrite(IO_PIN, LOW);
 }
+

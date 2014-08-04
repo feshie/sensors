@@ -9,6 +9,7 @@
 #include <Wire.h>
 #include <EEPROM.h>
 
+#include "sensors.h"
 #include "TAD.h"
 #include "buffer.h"
 #include "pb_encode.h"
@@ -26,8 +27,9 @@
 //Pin for toggling rx/tx
 #define IO_PIN 2
 
-#define EEPROM_ADDR_ID = 0
+//globals for sensor and id info
 byte avrID;
+byte attachedSensor;
 
 uint8_t RESPONSE_HEADER[] = {
   MASTER_ADDRESS, OPCODE_RESPONSE};
@@ -46,15 +48,33 @@ void getData(struct Message *rq) {
   message.dst = 0;
   message.type = Rs485_Type_DATA;
   message.has_sensor = true;
-  message.sensor = Rs485_Sensor_TA_CHAIN;
-  message.ow_count = 0;
-  message.ad_count = 0;
-  message.tad_count = 4;
-
-  readTAD(TMP_ADDR1, ACCEL_ADDR1, false, 1, &message.tad[0]);
-  readTAD(TMP_ADDR2, ACCEL_ADDR2, false, 2, &message.tad[1]);
-  readTAD(TMP_ADDR1, ACCEL_ADDR1, true, 3, &message.tad[2]);
-  readTAD(TMP_ADDR2, ACCEL_ADDR2, true, 4, &message.tad[3]);
+  
+  if (attachedSensor & SENSOR_TSPIDER) {
+    //TODO
+    message.sensor = Rs485_Sensor_OW;
+    message.ow_count = 0;
+  } else {
+    message.ow_count = 0;
+  }
+  
+  if (attachedSensor & SENSOR_WPRESSURE) {
+    //TODO
+    message.sensor = Rs485_Sensor_ADC0;
+    message.ad_count = 0;
+  } else {
+    message.ad_count = 0;
+  }
+  
+  if (attachedSensor & SENSOR_TACHAIN) {
+    message.sensor = Rs485_Sensor_TA_CHAIN;
+    message.tad_count = 4;
+    readTAD(TMP_ADDR1, ACCEL_ADDR1, false, 1, &message.tad[0]);
+    readTAD(TMP_ADDR2, ACCEL_ADDR2, false, 2, &message.tad[1]);
+    readTAD(TMP_ADDR1, ACCEL_ADDR1, true, 3, &message.tad[2]);
+    readTAD(TMP_ADDR2, ACCEL_ADDR2, true, 4, &message.tad[3]);
+  } else {
+     message.tad_count = 0; 
+  }
 
   digitalWrite(IO_PIN, HIGH);
   pb_ostream_t stream = {
@@ -79,6 +99,23 @@ void writeMessage(Message *m) {
   Serial.write((crc >> 8) & 0xFF);
   Serial.flush();
   digitalWrite(IO_PIN, LOW);
+}
+
+//Respond to a ListSensors request
+void listSensors(struct Message *rq) {
+  rq->address = MASTER_ADDRESS;
+  rq->opcode = OPCODE_RESPONSE;
+  
+  if (attachedSensor & SENSOR_TACHAIN) {
+      rq->payload = (void*)"TACHAIN";
+  } else if (attachedSensor & SENSOR_TSPIDER) {
+    rq->payload = (void*)"TSPIDER";
+  } else if (attachedSensor & SENSOR_WPRESSURE) {
+    rq->payload = (void*)"TWPRESSURE";
+  }
+  rq->payloadLength = strlen((char*)rq->payload);
+  
+  writeMessage(rq);
 }
 
 //Respond to an Echo request
@@ -113,6 +150,7 @@ void setup(void) {
   i2c_init();
 
   avrID = EEPROM.read(0);
+  attachedSensor = EEPROM.read(1);
 
   pinMode(IO_PIN, OUTPUT);
 }
@@ -124,6 +162,9 @@ void handleMessage(struct Message *request) {
     break; 
   case OPCODE_GETDATA:
     getData(request);
+    break;
+  case OPCODE_LISTSENSORS:
+    listSensors(request);
     break;
  }
 }
