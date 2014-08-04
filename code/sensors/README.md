@@ -33,7 +33,7 @@ The currently supported commands, together with the responses are detailed in th
 | Echo        | 0x00	   | A null terminated ASCII string | the `<PAYLOAD>`                     |
 | ListSensors | 0x01       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]>` |
 | GetData     | 0x02       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]>` |
-| SetGain     | 0x03       | The new gain to set (8 bytes?) | ACK byte: 0x01                      |
+| SetGain     | 0x03       | The new gain (single byte)     | ACK byte: 0x01                      |
 | /RESPONSE/  | 0xFF       | The response 					| N/A                      			  |
 
 ### Timing ###
