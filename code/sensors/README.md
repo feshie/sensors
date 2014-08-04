@@ -33,8 +33,11 @@ The currently supported commands, together with the responses are detailed in th
 | Echo        | 0x00	   | A null terminated ASCII string | the `<PAYLOAD>`                     |
 | ListSensors | 0x01       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]>` |
 | GetData     | 0x02       | none                           | protocol-buffer encoded data struct: `<LENGTH:uint16><DATA:byte[LENGTH]>` |
-| SetGain     | 0x03       | The new gain (single byte)     | ACK byte: 0x01                      |
-| /RESPONSE/  | 0xFF       | The response 					| N/A                      			  |
+| SetGain     | 0x03       | The new gain (single byte)     | 0x01 on success; 0x00 on failure    |
+| _RESPONSE_  | 0xFF       | The response 					| N/A                      			  |
+
+### CRC16 ###
+The CRC16 variant used is the `crc16_update` [described here.](http://www.nongnu.org/avr-libc/user-manual/group__util__crc.html#ga95371c87f25b0a2497d9cba13190847f).
 
 ### Timing ###
 
