@@ -11,6 +11,7 @@
 
 #include "sensors.h"
 #include "TAD.h"
+#include "OW.h"
 #include "buffer.h"
 #include "pb_encode.h"
 
@@ -52,6 +53,7 @@ void getData(struct Message *rq) {
   if (attachedSensor & SENSOR_TSPIDER) {
     //TODO
     message.sensor = Rs485_Sensor_OW;
+    
     message.ow_count = 0;
   } else {
     message.ow_count = 0;
