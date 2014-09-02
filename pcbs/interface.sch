@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12111,7 +12111,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="U1" library="glacsweb" deviceset="ISL3179EIBZ" device=""/>
 <part name="C1" library="resistor" deviceset="CPOL-EU" device="A/3216-18R" value="22uF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="R0805" value="1k"/>
 <part name="ISP1" library="adafruit" deviceset="AVRISP" device="-6"/>
 <part name="P+2" library="glacsweb" deviceset="VCC" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -12158,7 +12157,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="U1" gate="A" x="43.18" y="93.98"/>
 <instance part="C1" gate="G$1" x="45.72" y="149.86"/>
 <instance part="GND3" gate="1" x="20.32" y="81.28"/>
-<instance part="R1" gate="G$1" x="12.7" y="91.44" rot="R90"/>
 <instance part="ISP1" gate="G$1" x="149.86" y="43.18"/>
 <instance part="P+2" gate="VCC" x="165.1" y="53.34"/>
 <instance part="GND5" gate="1" x="165.1" y="35.56"/>
@@ -12294,9 +12292,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <pinref part="U1" gate="A" pin="VCC"/>
 <wire x1="25.4" y1="99.06" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="96.52" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
-<junction x="12.7" y="99.06"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="AVCC"/>
@@ -12380,13 +12375,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="185.42" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="TXEN" class="0">
 <segment>
 <pinref part="U1" gate="A" pin="DE"/>
-<wire x1="25.4" y1="91.44" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="91.44" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="86.36" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="91.44" x2="7.62" y2="91.44" width="0.1524" layer="91"/>
+<label x="7.62" y="91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PD2(INT0)"/>
+<wire x1="170.18" y1="104.14" x2="193.04" y2="104.14" width="0.1524" layer="91"/>
+<label x="185.42" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="!RESET" class="0">
