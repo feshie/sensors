@@ -8,7 +8,8 @@
 // http://milesburton.com/Dallas_Temperature_Control_Library
 
 int OW_PIN = A2;
-bool DEBUG = 0;
+bool DEBUG = 1;
+#define IO_PIN 2
 
 
 OneWire  ds(OW_PIN);  // on pin 10
@@ -16,6 +17,7 @@ OneWire  ds(OW_PIN);  // on pin 10
 
 void setup(void) {
   Serial.begin(9600);
+    digitalWrite(IO_PIN, HIGH);
   read_1W();
   Serial.println("*****");
 }
@@ -27,6 +29,7 @@ void read_1W(){
   }
   while(ds.search(addr)){
     read_1W_addr(addr);
+    delay(500);
   }
   
   ds.reset_search();
