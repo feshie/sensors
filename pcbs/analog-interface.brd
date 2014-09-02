@@ -143,7 +143,7 @@
 <wire x1="42.888" y1="14" x2="-34.036" y2="14" width="0" layer="20"/>
 <wire x1="-34.036" y1="14" x2="-34.036" y2="0.508" width="0" layer="20"/>
 <text x="35.306" y="11.684" size="1.778" layer="25">1</text>
-<text x="-15.367" y="1.397" size="1.778" layer="25" font="vector">V0.1</text>
+<text x="-15.367" y="1.397" size="1.778" layer="25" font="vector">V0.2</text>
 <text x="-15.24" y="3.429" size="1.778" layer="25" font="vector">PJB</text>
 <text x="15.494" y="11.684" size="1.778" layer="26" font="vector" rot="MR0">Analog Interface</text>
 </plain>
