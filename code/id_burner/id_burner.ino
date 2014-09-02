@@ -37,8 +37,8 @@ void setup() {
 //  Serial.flush();
 //  digitalWrite(IO_PIN, LOW);
 
-  EEPROM.write(0,0x01);
-  EEPROM.write(0,SENSOR_TACHAIN);
+  EEPROM.write(EEPROM_ADDR_ID,0x02);
+  EEPROM.write(EEPROM_SENSORS,SENSOR_TACHAIN);
   
   pinMode(IO_PIN, OUTPUT);
 }
@@ -50,4 +50,7 @@ void loop() {
   Serial.flush();
   digitalWrite(IO_PIN, LOW);
 }
+
+//Use a variation of the following to stop the eeprom being overwritten by a programmer
+//avrdude -p atmega328p -c avrispv2 -P/dev/tty.usbmodem00079651 -U hfuse:w:0xD2:m
 
