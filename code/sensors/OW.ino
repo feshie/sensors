@@ -8,9 +8,8 @@ OneWire  ds(OW_PIN);
 void readOW( OwData owds[NO_OW_SENSORS]){
   byte addr[8];
   int i = 0;
-  OwData owd;
   while(ds.search(addr)){
-    read_1W_addr(addr, owd[i]);
+    read_1W_addr(addr, &owds[i]);
     i++;
   }
   ds.reset_search();

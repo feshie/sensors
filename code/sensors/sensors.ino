@@ -53,8 +53,13 @@ void getData(struct Message *rq) {
   if (attachedSensor & SENSOR_TSPIDER) {
     //TODO
     message.sensor = Rs485_Sensor_OW;
-    
-    message.ow_count = 0;
+    OwData owds[NO_OW_SENSORS];
+    readOW(owds);
+    message.ow_count = NO_OW_SENSORS;
+    int i;
+    for(i=0; i < NO_OW_SENSORS; i++){
+     message.ow[i] = owds[i];
+    }
   } else {
     message.ow_count = 0;
   }
