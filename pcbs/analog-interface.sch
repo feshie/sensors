@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="6.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13298,7 +13298,6 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="U1" library="glacsweb" deviceset="ISL3179EIBZ" device=""/>
 <part name="C1" library="resistor" deviceset="CPOL-EU" device="A/3216-18R" value="22uF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="R0805" value="1k"/>
 <part name="ISP1" library="adafruit" deviceset="AVRISP" device="-6"/>
 <part name="P+2" library="glacsweb" deviceset="VCC" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -13346,7 +13345,6 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <instance part="U1" gate="A" x="43.18" y="93.98"/>
 <instance part="C1" gate="G$1" x="33.02" y="152.4"/>
 <instance part="GND3" gate="1" x="20.32" y="81.28"/>
-<instance part="R1" gate="G$1" x="12.7" y="91.44" rot="R90"/>
 <instance part="ISP1" gate="G$1" x="35.56" y="20.32"/>
 <instance part="P+2" gate="VCC" x="50.8" y="30.48"/>
 <instance part="GND5" gate="1" x="50.8" y="12.7"/>
@@ -13390,13 +13388,9 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="U1" gate="A" pin="GND"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+<pinref part="U1" gate="A" pin="GND"/>
 <wire x1="25.4" y1="83.82" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="~RE"/>
-<wire x1="25.4" y1="93.98" x2="20.32" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="93.98" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
-<junction x="20.32" y="83.82"/>
 </segment>
 <segment>
 <pinref part="ISP1" gate="G$1" pin="GND"/>
@@ -13462,9 +13456,6 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <pinref part="U1" gate="A" pin="VCC"/>
 <wire x1="25.4" y1="99.06" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="96.52" x2="12.7" y2="99.06" width="0.1524" layer="91"/>
-<junction x="12.7" y="99.06"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="VCC@1"/>
@@ -13552,15 +13543,6 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <pinref part="U2" gate="G$1" pin="PD1(TXD)"/>
 <wire x1="170.18" y1="127" x2="193.04" y2="127" width="0.1524" layer="91"/>
 <label x="185.42" y="127" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="U1" gate="A" pin="DE"/>
-<wire x1="25.4" y1="91.44" x2="17.78" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="17.78" y1="91.44" x2="17.78" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="17.78" y1="86.36" x2="12.7" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="!RESET" class="0">
@@ -13888,6 +13870,21 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <wire x1="226.06" y1="167.64" x2="213.36" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="228.6" y1="165.1" x2="226.06" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="226.06" y1="165.1" x2="226.06" y2="167.64" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="TXEN" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="DE"/>
+<wire x1="25.4" y1="91.44" x2="10.16" y2="91.44" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="~RE"/>
+<wire x1="25.4" y1="91.44" x2="25.4" y2="93.98" width="0.1524" layer="91"/>
+<junction x="25.4" y="91.44"/>
+<label x="10.16" y="91.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="PD2(INT0)"/>
+<wire x1="170.18" y1="124.46" x2="193.04" y2="124.46" width="0.1524" layer="91"/>
+<label x="185.42" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
