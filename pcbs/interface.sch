@@ -12199,13 +12199,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="U1" gate="A" pin="GND"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+<pinref part="U1" gate="A" pin="GND"/>
 <wire x1="25.4" y1="83.82" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="~RE"/>
-<wire x1="25.4" y1="93.98" x2="20.32" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="93.98" x2="20.32" y2="83.82" width="0.1524" layer="91"/>
-<junction x="20.32" y="83.82"/>
 </segment>
 <segment>
 <pinref part="ISP1" gate="G$1" pin="GND"/>
@@ -12380,6 +12376,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U1" gate="A" pin="DE"/>
 <wire x1="25.4" y1="91.44" x2="7.62" y2="91.44" width="0.1524" layer="91"/>
 <label x="7.62" y="91.44" size="1.778" layer="95"/>
+<pinref part="U1" gate="A" pin="~RE"/>
+<wire x1="25.4" y1="93.98" x2="25.4" y2="91.44" width="0.1524" layer="91"/>
+<junction x="25.4" y="91.44"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="PD2(INT0)"/>
