@@ -72,10 +72,9 @@ void loop() {
   // if printed last visible character '~' or 126, stop: 
   if(thisByte == 126) {     // you could also use if (thisByte == '~') {
     // This loop loops forever and does nothing
-    while(true) { 
-      continue; 
-    } 
-  } 
-  // go on to the next character
-  thisByte++;  
+    thisByte=0;
+  } else{
+    // go on to the next character
+    thisByte++;  
+  }
 } 
