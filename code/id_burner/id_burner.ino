@@ -37,8 +37,8 @@ void setup() {
 //  Serial.flush();
 //  digitalWrite(IO_PIN, LOW);
 
-  EEPROM.write(EEPROM_ADDR_ID,0x02);
-  EEPROM.write(EEPROM_SENSORS,SENSOR_TACHAIN);
+  EEPROM.write(EEPROM_ADDR_ID,0x22);
+  EEPROM.write(EEPROM_SENSORS,04);
   
   pinMode(IO_PIN, OUTPUT);
 }
@@ -46,7 +46,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly: 
   digitalWrite(IO_PIN, HIGH);
-  Serial.println(EEPROM.read(0));
+  Serial.println(EEPROM.read(0), HEX);
   Serial.flush();
   digitalWrite(IO_PIN, LOW);
 }
