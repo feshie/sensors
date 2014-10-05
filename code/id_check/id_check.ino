@@ -10,9 +10,9 @@ void setup() {
   digitalWrite(IO_PIN, HIGH);
   Serial.println("This program will print the ID from the AVR");
   Serial.print("The address is:");
-  Serial.println(EEPROM.read(0));
+  Serial.println(EEPROM.read(0), HEX);
   Serial.print("The mode is:");
-  Serial.println(EEPROM.read(1));
+  Serial.println(EEPROM.read(1), HEX);
   Serial.flush();
   digitalWrite(IO_PIN, LOW);
 }
