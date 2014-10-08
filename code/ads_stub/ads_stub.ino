@@ -35,10 +35,13 @@ THE SOFTWARE.
 #include "ADS1115.h"
 
 ADS1115 adc0(ADS1115_DEFAULT_ADDRESS); 
-
+#define IO_PIN 2
 void setup() {                
-    Wire.begin();  // join I2C bus
+    pinMode(IO_PIN, OUTPUT);
+    digitalWrite(IO_PIN, HIGH);
     Serial.begin(9600); // initialize serial communication 
+    Serial.println("Starting ADS Stub");
+    Wire.begin();  // join I2C bus
     Serial.println("Initializing I2C devices..."); 
     adc0.initialize(); // initialize ADS1115 16 bit A/D chip
     
