@@ -8,10 +8,12 @@
 #include <SoftI2CMaster.h>
 #include <Wire.h>
 #include <EEPROM.h>
+#include <I2Cdev.h>
 
 #include "sensors.h"
 #include "TAD.h"
 #include "OW.h"
+#include "ADC.h"
 #include "buffer.h"
 #include "pb_encode.h"
 
@@ -27,7 +29,7 @@
 
 //Pin for toggling rx/tx
 #define IO_PIN 2
-
+#define DELAY 300
 //globals for sensor and id info
 byte avrID;
 byte attachedSensor;
@@ -49,7 +51,6 @@ void getData(struct Message *rq) {
   message.dst = 0;
   message.type = Rs485_Type_DATA;
   message.has_sensor = true;
-  
   if (attachedSensor & SENSOR_TSPIDER) {
     //TODO
     message.sensor = Rs485_Sensor_OW;
@@ -67,7 +68,19 @@ void getData(struct Message *rq) {
   if (attachedSensor & SENSOR_WPRESSURE) {
     //TODO
     message.sensor = Rs485_Sensor_ADC0;
-    message.ad_count = 0;
+    message.ad_count = NO_WP_SENSORS;
+
+    AnalogData ad[NO_WP_SENSORS];
+
+//    readWP(ad);
+//    int i = 0;
+ //   for(i = 0; i< NO_WP_SENSORS; i++){
+ //     message.ad[i] = ad[i]; 
+ //   }
+ message.ad[0].adc = 0;
+ message.ad[0].value = 53.3;
+  message.ad[1].adc = 1;
+ message.ad[1].value = 13.3;
   } else {
     message.ad_count = 0;
   }
@@ -92,6 +105,7 @@ void getData(struct Message *rq) {
   Serial.write(crc & 0xFF);
   Serial.write((crc >> 8) & 0xFF);
   Serial.flush();
+  delay(DELAY);
   digitalWrite(IO_PIN, LOW);
 }
 
@@ -105,6 +119,7 @@ void writeMessage(Message *m) {
   Serial.write(crc & 0xFF);
   Serial.write((crc >> 8) & 0xFF);
   Serial.flush();
+  delay(DELAY);
   digitalWrite(IO_PIN, LOW);
 }
 
@@ -158,7 +173,6 @@ void setup(void) {
 
   avrID = EEPROM.read(0);
   attachedSensor = EEPROM.read(1);
-
   pinMode(IO_PIN, OUTPUT);
 }
 
@@ -180,6 +194,7 @@ void serialDebug(char * msg) {
   digitalWrite(IO_PIN, HIGH);
   Serial.println(msg);
   Serial.flush();
+  delay(DELAY);
   digitalWrite(IO_PIN, LOW);
 }
 
