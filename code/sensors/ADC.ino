@@ -14,12 +14,13 @@ void readWP(AnalogData ads_data[NO_WP_SENSORS]){
     delay(30);
     adc0.setMode(ADS1115_MODE_SINGLESHOT);
     ads_data[0].adc = 0;
-    ads_data[0].value =  adc0.getConversionP0GND();
-    
+    ads_data[0].value =  (float)adc0.getConversionP0GND() * 6.25;
+    delay(50);    
     adc0.setMode(ADS1115_CFG_MODE_BIT);
     adc0.setGain(ADS1115_PGA_6P144 );
+    adc0.setMultiplexer(ADS1115_MUX_P1_NG);
     delay(30);
     adc0.setMode(ADS1115_MODE_SINGLESHOT);
     ads_data[1].adc = 1;
-    ads_data[1].value = adc0.getConversion();  // counts up to 16-bits
+    ads_data[1].value = (float)adc0.getConversionP1GND() * 4.43413 + 10600;  // counts up to 16-bits
 }

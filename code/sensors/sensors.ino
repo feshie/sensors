@@ -72,15 +72,15 @@ void getData(struct Message *rq) {
 
     AnalogData ad[NO_WP_SENSORS];
 
-//    readWP(ad);
-//    int i = 0;
- //   for(i = 0; i< NO_WP_SENSORS; i++){
- //     message.ad[i] = ad[i]; 
- //   }
- message.ad[0].adc = 0;
- message.ad[0].value = 53.3;
-  message.ad[1].adc = 1;
- message.ad[1].value = 13.3;
+    readWP(ad);
+    int i = 0;
+    for(i = 0; i< NO_WP_SENSORS; i++){
+      message.ad[i] = ad[i]; 
+    }
+// message.ad[0].adc = 0;
+// message.ad[0].value = 53.3;
+//  message.ad[1].adc = 1;
+// message.ad[1].value = 13.3;
   } else {
     message.ad_count = 0;
   }
