@@ -1,9 +1,9 @@
 #include <EEPROM.h>
-
+// print the node's ID from EEPROM once - for checking it is OK
 #define IO_PIN 2
 
 void setup() {
-  // put your setup code here, to run once:
+  
   Serial.begin(9600);
   pinMode(IO_PIN, OUTPUT);
   
@@ -18,6 +18,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly: 
+  
   
 }
