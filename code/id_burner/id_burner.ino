@@ -1,11 +1,14 @@
 #include <EEPROM.h>
 #include "sensors.h"
+// Write the unique ID to the AVR's EEPROM
+//Use a variation of the following to stop the eeprom being overwritten by a programmer
+//avrdude -p atmega328p -c avrispv2 -P/dev/tty.usbmodem00079651 -U hfuse:w:0xD2:m
 
 //Pin for toggling rx/tx
 #define IO_PIN 2
 
 void setup() {
-  // put your setup code here, to run once:
+  
   Serial.begin(9600);
   
 //  digitalWrite(IO_PIN, HIGH);
@@ -51,6 +54,5 @@ void loop() {
   digitalWrite(IO_PIN, LOW);
 }
 
-//Use a variation of the following to stop the eeprom being overwritten by a programmer
-//avrdude -p atmega328p -c avrispv2 -P/dev/tty.usbmodem00079651 -U hfuse:w:0xD2:m
+
 
